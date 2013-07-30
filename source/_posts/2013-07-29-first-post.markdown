@@ -10,6 +10,8 @@ This is my blog. I plan to spend some time to blog everyday. Trying out Octopres
 
 So here is what I would like to do: Every blog post will be accompanied by a Github project. Every post will have a common theme. A question. And an answer to it.
 
+All posts are divided into 3 catagories: beginner, intermediate & advanced.
+
 Test embeding code
 ``` ruby
 rake deploy
