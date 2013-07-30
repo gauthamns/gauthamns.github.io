@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[My Stuff!!]]></title>
-  <link href="http://gauthamns.github.io/atom.xml" rel="self"/>
+  <title><![CDATA[Category: actionbarcompat | My Stuff!!]]></title>
+  <link href="http://gauthamns.github.io/blog/categories/actionbarcompat/atom.xml" rel="self"/>
   <link href="http://gauthamns.github.io/"/>
   <updated>2013-07-30T17:57:52+05:30</updated>
   <id>http://gauthamns.github.io/</id>
@@ -25,38 +25,6 @@
 <p>Github repo: <a href="https://github.com/gauthamns/blog-actionbarcompat.git">https://github.com/gauthamns/blog-actionbarcompat.git</a></p>
 
 <p>The way Navigation Drawer is designed, I believe a better way to design the apps is by having a Single Activity for the whole app and changing the Fragments. (Single Activity does not mean it is only opened once, but might be opened many times with different intents. Intents are consumed by FragmentFactory class which will spit out the required Fragment for the current page.) Will write a new blog post on this.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[I should Blog daily!!]]></title>
-    <link href="http://gauthamns.github.io/blog/2013/07/29/first-post/"/>
-    <updated>2013-07-29T23:52:00+05:30</updated>
-    <id>http://gauthamns.github.io/blog/2013/07/29/first-post</id>
-    <content type="html"><![CDATA[<p>This is my blog. I plan to spend some time to blog everyday. Trying out Octopress since it seems to be very simple and built for hackers!!</p>
-
-<p>So here is what I would like to do: Every blog post will be accompanied by a Github project. Every post will have a common theme. A question. And an answer to it.</p>
-
-<p>All posts are divided into 3 catagories: beginner, intermediate &amp; advanced.</p>
-
-<p>Test embeding code</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">rake</span> <span class="n">deploy</span>
-</span><span class='line'><span class="k">def</span> <span class="nf">fansy_super</span><span class="p">(</span><span class="n">is_true</span><span class="p">)</span>
-</span><span class='line'>  <span class="n">is_true</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<div><script src='https://gist.github.com/996818.js'></script>
-<noscript><pre><code></code></pre></noscript></div>
-
 ]]></content>
   </entry>
   

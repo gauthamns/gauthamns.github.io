@@ -98,6 +98,8 @@
 <p>I believe every app (majority of the cases) will have ActionBarCompat and NavigationDrawer. If the app is simple enough, there is no need for a NavigationDrawer. So how well do they both play with each other? Pretty well actually. I did not have any problems integrating both even though the Navigation Drawer example given by Google uses native ActionBar and for API levels higher than 14.</p>
 
 <p>Github repo: <a href="https://github.com/gauthamns/blog-actionbarcompat.git">https://github.com/gauthamns/blog-actionbarcompat.git</a></p>
+
+<p>The way Navigation Drawer is designed, I believe a better way to design the apps is by having a Single Activity for the whole app and changing the Fragments. (Single Activity does not mean it is only opened once, but might be opened many times with different intents. Intents are consumed by FragmentFactory class which will spit out the required Fragment for the current page.) Will write a new blog post on this.</p>
 </div>
 
 
@@ -122,6 +124,12 @@
 
 <time datetime="2013-07-30T17:15:00+05:30" pubdate data-updated="true">Jul 30<span>th</span>, 2013</time>
       
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/actionbarcompat/'>actionbarcompat</a>, <a class='category' href='/blog/categories/android/'>android</a>, <a class='category' href='/blog/categories/beginner/'>beginner</a>
+  
+</span>
 
 
     </p>
