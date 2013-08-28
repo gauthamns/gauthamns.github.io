@@ -4,7 +4,7 @@
   <title><![CDATA[Category: ember.js | My Stuff!!]]></title>
   <link href="http://gauthamns.github.io/blog/categories/ember-dot-js/atom.xml" rel="self"/>
   <link href="http://gauthamns.github.io/"/>
-  <updated>2013-08-28T16:15:37+05:30</updated>
+  <updated>2013-08-28T16:26:10+05:30</updated>
   <id>http://gauthamns.github.io/</id>
   <author>
     <name><![CDATA[Gautham]]></name>
@@ -30,17 +30,25 @@ Better user experience. A game like Fantasy Cricket has to have a dynamic websit
 <p>For example, in Fansy.in, Tournaments have Matches and Tournament user rankings. It is expensive and unnecessary to load all the ids of the hasMany relationships when loading tournaments in the tournaments page where we do not need them.
 And then, when we go to a Tournament&rsquo;s page where we will need Matches and User&rsquo;s rankings, two requests are made to fetch the relationships and increases with the number of relationships for a model.</p>
 
-<p>I&rsquo;ve been thinking about how to handle it so that the number of json requests do not shoot up and also we are fetching only the data we need. My thought process as of now:
-1. From the server, Send all the data required for displaying the particular page.
-2. For relationships, side load all data and never send only ids. (This will make sure extra calls are not made for fetching the those objects later but loaded already. Expensive to send all the data. Will handle it in the next step.)
-3. Send only the data required for displaying the particular page. If matches are not required while showing list of tournaments, do not send down the ids of the matches too. (This will break the ember-data loading part but will handle it in the next step.)
-4. In the setupController, reload the model if loaded already. This way, we will make sure that the model is reloaded and the server will send all the request necessary to show the particular page.</p>
+<p>I&rsquo;ve been thinking about how to handle it so that the number of json requests do not shoot up and also we are fetching only the data we need. My thought process as of now:</p>
+
+<ol>
+<li>From the server, Send all the data required for displaying the particular page.</li>
+<li>For relationships, side load all data and never send only ids. (This will make sure extra calls are not made for fetching the those objects later but loaded already. Expensive to send all the data. Will handle it in the next step.)</li>
+<li>Send only the data required for displaying the particular page. If matches are not required while showing list of tournaments, do not send down the ids of the matches too. (This will break the ember-data loading part but will handle it in the next step.)</li>
+<li>In the setupController, reload the model if loaded already. This way, we will make sure that the model is reloaded and the server will send all the request necessary to show the particular page.</li>
+</ol>
+
+
+<p>``` coffeescript</p>
 
 <pre><code>setupController: (controller, model) -&gt;
     if model.get('isLoaded')
         model.reload()
     controller.set('model', model)
 </code></pre>
+
+<p>```</p>
 ]]></content>
   </entry>
   
