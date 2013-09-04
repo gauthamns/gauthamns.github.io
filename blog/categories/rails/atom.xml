@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: rails | My Stuff!!]]></title>
+  <link href="http://gauthamns.github.io/blog/categories/rails/atom.xml" rel="self"/>
+  <link href="http://gauthamns.github.io/"/>
+  <updated>2013-09-04T12:20:47+05:30</updated>
+  <id>http://gauthamns.github.io/</id>
+  <author>
+    <name><![CDATA[Gautham]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Excited for Barcamp Ember.js talk and Rails meetup group]]></title>
+    <link href="http://gauthamns.github.io/blog/2013/08/30/excited-for-barcamp-ember-dot-js-talk-and-rails-meetup-group/"/>
+    <updated>2013-08-30T09:41:00+05:30</updated>
+    <id>http://gauthamns.github.io/blog/2013/08/30/excited-for-barcamp-ember-dot-js-talk-and-rails-meetup-group</id>
+    <content type="html"><![CDATA[<p>I&rsquo;m pretty excited and happy about my open source initiatives for this month.</p>
+
+<p>I was surprised that there is no Rails meetup in Bangalore. Rails is exciting!! More I use Rails, more I fall in love. A very well thought framework indeed. So I just went ahead and created one. I hope the community drives it forward.</p>
+
+<p>More I use Ember.js, more I&rsquo;m convinced of the potential of Javascript MVC frameworks. While Ember is still not a finished product (lots of polishing is required. And can do with good docs too.) I&rsquo;m giving a session on Ember in Barcamp Bangalore on Sept 14th.</p>
+]]></content>
+  </entry>
+  
+</feed>

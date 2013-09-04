@@ -1,24 +1,100 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[My Stuff!!]]></title>
-  <link href="http://gauthamns.github.io/atom.xml" rel="self"/>
-  <link href="http://gauthamns.github.io/"/>
-  <updated>2013-09-04T12:20:47+05:30</updated>
-  <id>http://gauthamns.github.io/</id>
-  <author>
-    <name><![CDATA[Gautham]]></name>
-    
-  </author>
-  <generator uri="http://octopress.org/">Octopress</generator>
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Dynamic class names in Ember - My Stuff!!</title>
+  <meta name="author" content="Gautham">
 
   
-  <entry>
-    <title type="html"><![CDATA[Dynamic class names in Ember]]></title>
-    <link href="http://gauthamns.github.io/blog/2013/09/04/dynamic-class-names-in-ember/"/>
-    <updated>2013-09-04T11:13:00+05:30</updated>
-    <id>http://gauthamns.github.io/blog/2013/09/04/dynamic-class-names-in-ember</id>
-    <content type="html"><![CDATA[<p>One of the strong points of ember is binding. It is so easy to update values without having to write observers and doing ugly stuff on DOM (I won&rsquo;t pretend I know much about Javascript).</p>
+  <meta name="description" content="One of the strong points of ember is binding. It is so easy to update values without having to write observers and doing ugly stuff on DOM (I won& &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://gauthamns.github.io/blog/2013/09/04/dynamic-class-names-in-ember">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/atom.xml" rel="alternate" title="My Stuff!!" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/lib/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <h1><a href="/">My Stuff!!</a></h1>
+  
+    <h2>Technical blabber.</h2>
+  
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="http://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:gauthamns.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+  <li><a href="/blog/categories">Categories</a></li>
+  <li><a href="http://fansy.in">Fansy.in</a></li>
+</ul>
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">Dynamic Class Names in Ember</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-09-04T11:13:00+05:30" pubdate data-updated="true">Sep 4<span>th</span>, 2013</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>One of the strong points of ember is binding. It is so easy to update values without having to write observers and doing ugly stuff on DOM (I won&rsquo;t pretend I know much about Javascript).</p>
 
 <p>As I&rsquo;m rewriting my website Fanzy.in in Ember, I&rsquo;m facing lot of minor issues which tell me either Ember has a steep learning curve, or docs aren&rsquo;t good enough (both are not good).</p>
 
@@ -155,130 +231,207 @@ So ScheduledMatch might have around 30 players(MatchPlayerScore) but MatchPlayer
 <p>We write our own custom view <code>Fansy.MpsTrView</code> which will render each <code>MatchPlayerScore</code>. The view will have the <tr> tag <code>tagName: 'tr'</code>. Also, we bind className to <code>selectionClass</code> function. So in the selection class function, we return <code>"info"</code> or <code>"success"</code> as appropriate.</p>
 
 <p>The view will render the handlebars block within <code></code> and we provide our table columns there. Since we have declared <tr> tag, handlebars block will be surrounded with <tr></p>
-]]></content>
-  </entry>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
   
-  <entry>
-    <title type="html"><![CDATA[Excited for Barcamp Ember.js talk and Rails meetup group]]></title>
-    <link href="http://gauthamns.github.io/blog/2013/08/30/excited-for-barcamp-ember-dot-js-talk-and-rails-meetup-group/"/>
-    <updated>2013-08-30T09:41:00+05:30</updated>
-    <id>http://gauthamns.github.io/blog/2013/08/30/excited-for-barcamp-ember-dot-js-talk-and-rails-meetup-group</id>
-    <content type="html"><![CDATA[<p>I&rsquo;m pretty excited and happy about my open source initiatives for this month.</p>
 
-<p>I was surprised that there is no Rails meetup in Bangalore. Rails is exciting!! More I use Rails, more I fall in love. A very well thought framework indeed. So I just went ahead and created one. I hope the community drives it forward.</p>
+<span class="byline author vcard">Posted by <span class="fn">Gautham</span></span>
 
-<p>More I use Ember.js, more I&rsquo;m convinced of the potential of Javascript MVC frameworks. While Ember is still not a finished product (lots of polishing is required. And can do with good docs too.) I&rsquo;m giving a session on Ember in Barcamp Bangalore on Sept 14th.</p>
-]]></content>
-  </entry>
+      
+
+
+
+
+
+
+
+
   
-  <entry>
-    <title type="html"><![CDATA[A look at Ember Data]]></title>
-    <link href="http://gauthamns.github.io/blog/2013/08/28/a-look-at-ember-data/"/>
-    <updated>2013-08-28T08:38:00+05:30</updated>
-    <id>http://gauthamns.github.io/blog/2013/08/28/a-look-at-ember-data</id>
-    <content type="html"><![CDATA[<p>I&rsquo;m learning Ember.js to use it for Fansy.in website and it has been a wonderful experience so far.</p>
-
-<p>Why client side MVC?
-Better user experience. A game like Fantasy Cricket has to have a dynamic website to keep the gamers interested. And as I understand, Javascript MVC&rsquo;s make it very easy to build dynamic web apps.</p>
-
-<p>I chose Ember because I want to integrate Discourse to Fansy.in (still a few months away!!) so choosing Ember was an obvious choice. I&rsquo;m loving the framework and the benefits look obvious. There is discourse project to look for some inspiration.</p>
-
-<p>But Ember-Data!! while ember-data looks cool from the outside, it is still raw and too restrictive to fit to anyone&rsquo;s needs (according to me atleast.). Today&rsquo;s websites are complicated and cannot fit into one model per page category.</p>
-
-<p>For example, in Fansy.in, Tournaments have Matches and Tournament user rankings. It is expensive and unnecessary to load all the ids of the hasMany relationships when loading tournaments in the tournaments page where we do not need them.
-And then, when we go to a Tournament&rsquo;s page where we will need Matches and User&rsquo;s rankings, two requests are made to fetch the relationships and increases with the number of relationships for a model.</p>
-
-<p>I&rsquo;ve been thinking about how to handle it so that the number of json requests do not shoot up and also we are fetching only the data we need. My thought process as of now:</p>
-
-<ol>
-<li>From the server, Send all the data required for displaying the particular page.</li>
-<li>For relationships, side load relationships and never send only ids. (This will make sure extra calls are not made for fetching the those objects later. Yes it is expensive to send all the data. Will handle it in the next step.)</li>
-<li>Send only the data required for displaying the particular page. If matches are not required while showing list of tournaments, do not send down the ids of the matches too. (This will break the ember-data loading part but will handle it in the next step.)</li>
-<li>In the setupController, reload the model if loaded already. This way, we will make sure that the model is reloaded and the server will send all the request necessary to show the particular page.</li>
-</ol>
 
 
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='coffeescript'><span class='line'><span class="nv">setupController: </span><span class="nf">(controller, model) -&gt;</span>
-</span><span class='line'>  <span class="k">if</span> <span class="nx">model</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s">&#39;isLoaded&#39;</span><span class="p">)</span>
-</span><span class='line'>      <span class="nx">model</span><span class="p">.</span><span class="nx">reload</span><span class="p">()</span>
-</span><span class='line'>  <span class="nx">controller</span><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s">&#39;model&#39;</span><span class="p">,</span> <span class="nx">model</span><span class="p">)</span>
-</span></code></pre></td></tr></table></div></figure>
+<time datetime="2013-09-04T11:13:00+05:30" pubdate data-updated="true">Sep 4<span>th</span>, 2013</time>
+      
 
-]]></content>
-  </entry>
+<span class="categories">
   
-  <entry>
-    <title type="html"><![CDATA[Google ditching Android? What a joke!!]]></title>
-    <link href="http://gauthamns.github.io/blog/2013/07/30/google-ditching-android-what-a-joke/"/>
-    <updated>2013-07-30T19:51:00+05:30</updated>
-    <id>http://gauthamns.github.io/blog/2013/07/30/google-ditching-android-what-a-joke</id>
-    <content type="html"><![CDATA[<p>AppleInsider wrote a lengthy article stating Google is ditching Android!! It&rsquo;s a classic example of coming to a conclusion first and then looking for evidence. The article here: <a href="http://appleinsider.com/articles/13/07/29/google-appears-ready-to-ditch-android-over-its-intellectual-property-issues">http://appleinsider.com/articles/13/07/29/google-appears-ready-to-ditch-android-over-its-intellectual-property-issues</a> . Last article I&rsquo;ve read in AppleInsider!! What a joke of an article!! It was actually fun reading all wrong conclusions :D</p>
-
-<p>Why? Because Android is not making money. Why? Intellectual issues. Why? Samsung&rsquo;s dominance. Why? Decelerated progress?. Why? Chromecast not named Androidcast!! Hahaha!!</p>
-
-<p>Android not making money? Seriously? That is why Microsoft spending billions popularizing Windows phone, firefox coming up with firefox os, Canonical, Ubuntu for phones. Android will make tons of money. From Motorola&rsquo;s hardware division, from Google services like email, app engine, from search etc etc. Do you think other divisions of Microsoft like Microsoft office would have been as popular as they have been if it were a standalone product?</p>
-
-<p>Intellectual issues? Microsoft had to pay so much in legal fines, so much bad press, bad blood I would say. Did they give up on Windows? Given that that was their main product but Android is not so for Google. But Android will be central to Google&rsquo;s bigger aspirations. to become more than just a search engine.</p>
-
-<p>Samsung&rsquo;s dominance? That is a cause for concern. Google should do something about it. But abondoning because of it? I believe with Google need not worry about Samsung&rsquo;s dominance. Samsung&rsquo;s software is just pathetic. Touchwiz is such a mess (not about extra features, mind you). They can never become a software company in the near future. And with Google play services, Google has made it extremely difficult to fork Android and be successful.</p>
-
-<p>Decelerated progress? Seriously? Let&rsquo;s take a look at what&rsquo;s new in the last year in Android. New location services, Game center for Android, design standardization, exciting hardware at affordable cost (Nexus 4), and finally Android 4.3. Google is now adding many of the features through Google play services instead through Android versions. Advantages: No need to wait for the new Android version to make it to the phone, make it harder to fork Android(for Google!!)</p>
-
-<p>Chromecast? Hahaha.. Chrome head. Business decisions. I&rsquo;m not commenting on that. Nor am I going to read too much into it.</p>
-
-<p>Chrome head now leading Android? Sundar Pichai is credited with resounding success of Chrome browser. Google will be hoping he takes Android to new heights. Not so that he will kill the popular OS and try and make Chrome OS popular.</p>
-]]></content>
-  </entry>
+    <a class='category' href='/blog/categories/ember-dot-js/'>ember.js</a>
   
-  <entry>
-    <title type="html"><![CDATA[ActionBarCompat with NavigationDrawer]]></title>
-    <link href="http://gauthamns.github.io/blog/2013/07/30/actionbarcompat-with-navigationdrawer/"/>
-    <updated>2013-07-30T17:15:00+05:30</updated>
-    <id>http://gauthamns.github.io/blog/2013/07/30/actionbarcompat-with-navigationdrawer</id>
-    <content type="html"><![CDATA[<p>ActionBarSherlock was one of the most popular libraries for Android which emulated the ActionBar functionalities for lower versions of Android. Now with Google releasing Compatibility library, we can use ActionBarActivity to have actionbar in our app instead of using ActionBarSherlock.</p>
+</span>
 
-<p>I believe every app (majority of the cases) will have ActionBarCompat and NavigationDrawer. If the app is simple enough, there is no need for a NavigationDrawer. So how well do they both play with each other? Pretty well actually. I did not have any problems integrating both even though the Navigation Drawer example given by Google uses native ActionBar and for API levels higher than 14.</p>
 
-<p>Github repo: <a href="https://github.com/gauthamns/blog-actionbarcompat.git">https://github.com/gauthamns/blog-actionbarcompat.git</a></p>
-
-<p>The way Navigation Drawer is designed, I believe a better way to design the apps is by having a Single Activity for the whole app and changing the Fragments. (Single Activity does not mean it is only opened once, but might be opened many times with different intents. Intents are consumed by FragmentFactory class which will spit out the required Fragment for the current page.) Will write a new blog post on this.</p>
-]]></content>
-  </entry>
+    </p>
+    
+      <div class="sharing">
   
-  <entry>
-    <title type="html"><![CDATA[I should Blog daily!!]]></title>
-    <link href="http://gauthamns.github.io/blog/2013/07/29/first-post/"/>
-    <updated>2013-07-29T23:52:00+05:30</updated>
-    <id>http://gauthamns.github.io/blog/2013/07/29/first-post</id>
-    <content type="html"><![CDATA[<p>This is my blog. I plan to spend some time to blog everyday. Trying out Octopress since it seems to be very simple and built for hackers!!</p>
-
-<p>So here is what I would like to do: Every blog post will be accompanied by a Github project. Every post will have a common theme. A question. And an answer to it.</p>
-
-<p>All posts are divided into 3 catagories: beginner, intermediate &amp; advanced.</p>
-
-<p>Test embeding code</p>
-
-<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="n">rake</span> <span class="n">deploy</span>
-</span><span class='line'><span class="k">def</span> <span class="nf">fansy_super</span><span class="p">(</span><span class="n">is_true</span><span class="p">)</span>
-</span><span class='line'>  <span class="n">is_true</span>
-</span><span class='line'><span class="k">end</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-
-
-<div><script src='https://gist.github.com/996818.js'></script>
-<noscript><pre><code></code></pre></noscript></div>
-
-]]></content>
-  </entry>
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://gauthamns.github.io/blog/2013/09/04/dynamic-class-names-in-ember/" data-via="gauthamns" data-counturl="http://gauthamns.github.io/blog/2013/09/04/dynamic-class-names-in-ember/" >Tweet</a>
   
-</feed>
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/08/30/excited-for-barcamp-ember-dot-js-talk-and-rails-meetup-group/" title="Previous Post: Excited for Barcamp Ember.js talk and Rails meetup group">&laquo; Excited for Barcamp Ember.js talk and Rails meetup group</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2013/09/04/dynamic-class-names-in-ember/">Dynamic Class Names in Ember</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/08/30/excited-for-barcamp-ember-dot-js-talk-and-rails-meetup-group/">Excited for Barcamp Ember.js Talk and Rails Meetup Group</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/08/28/a-look-at-ember-data/">A Look at Ember Data</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/07/30/google-ditching-android-what-a-joke/">Google Ditching Android? What a Joke!!</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/07/30/actionbarcompat-with-navigationdrawer/">ActionBarCompat With NavigationDrawer</a>
+      </li>
+    
+  </ul>
+</section>
+
+<section>
+  <h1>GitHub Repos</h1>
+  <ul id="gh_repos">
+    <li class="loading">Status updating...</li>
+  </ul>
+  
+  <a href="https://github.com/gauthamns">@gauthamns</a> on GitHub
+  
+  <script type="text/javascript">
+    $(document).ready(function(){
+        if (!window.jXHR){
+            var jxhr = document.createElement('script');
+            jxhr.type = 'text/javascript';
+            jxhr.src = '/javascripts/libs/jXHR.js';
+            var s = document.getElementsByTagName('script')[0];
+            s.parentNode.insertBefore(jxhr, s);
+        }
+
+        github.showRepos({
+            user: 'gauthamns',
+            count: 0,
+            skip_forks: true,
+            target: '#gh_repos'
+        });
+    });
+  </script>
+  <script src="/javascripts/github.js" type="text/javascript"> </script>
+</section>
+
+
+
+<section class="googleplus">
+  <h1>
+    <a href="https://plus.google.com/113451839722211336801?rel=author">
+      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
+      Google+
+    </a>
+  </h1>
+</section>
+
+
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2013 - Gautham -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'technicalblabber';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://gauthamns.github.io/blog/2013/09/04/dynamic-class-names-in-ember/';
+        var disqus_url = 'http://gauthamns.github.io/blog/2013/09/04/dynamic-class-names-in-ember/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'http://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id; js.async = true;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>

@@ -111,7 +111,7 @@ And then, when we go to a Tournament&rsquo;s page where we will need Matches and
 
 <ol>
 <li>From the server, Send all the data required for displaying the particular page.</li>
-<li>For relationships, side load all data and never send only ids. (This will make sure extra calls are not made for fetching the those objects later but loaded already. Expensive to send all the data. Will handle it in the next step.)</li>
+<li>For relationships, side load relationships and never send only ids. (This will make sure extra calls are not made for fetching the those objects later. Yes it is expensive to send all the data. Will handle it in the next step.)</li>
 <li>Send only the data required for displaying the particular page. If matches are not required while showing list of tournaments, do not send down the ids of the matches too. (This will break the ember-data loading part but will handle it in the next step.)</li>
 <li>In the setupController, reload the model if loaded already. This way, we will make sure that the model is reloaded and the server will send all the request necessary to show the particular page.</li>
 </ol>
@@ -179,6 +179,8 @@ And then, when we go to a Tournament&rsquo;s page where we will need Matches and
         <a class="basic-alignment left" href="/blog/2013/07/30/google-ditching-android-what-a-joke/" title="Previous Post: Google ditching Android? What a joke!!">&laquo; Google ditching Android? What a joke!!</a>
       
       
+        <a class="basic-alignment right" href="/blog/2013/08/30/excited-for-barcamp-ember-dot-js-talk-and-rails-meetup-group/" title="Next Post: Excited for Barcamp Ember.js talk and Rails meetup group">Excited for Barcamp Ember.js talk and Rails meetup group &raquo;</a>
+      
     </p>
   </footer>
 </article>
@@ -198,6 +200,14 @@ And then, when we go to a Tournament&rsquo;s page where we will need Matches and
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/09/04/dynamic-class-names-in-ember/">Dynamic Class Names in Ember</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/08/30/excited-for-barcamp-ember-dot-js-talk-and-rails-meetup-group/">Excited for Barcamp Ember.js Talk and Rails Meetup Group</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/08/28/a-look-at-ember-data/">A Look at Ember Data</a>
       </li>
     
@@ -207,10 +217,6 @@ And then, when we go to a Tournament&rsquo;s page where we will need Matches and
     
       <li class="post">
         <a href="/blog/2013/07/30/actionbarcompat-with-navigationdrawer/">ActionBarCompat With NavigationDrawer</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/07/29/first-post/">I Should Blog Daily!!</a>
       </li>
     
   </ul>

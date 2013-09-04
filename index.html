@@ -9,8 +9,7 @@
   <meta name="author" content="Gautham">
 
   
-  <meta name="description" content="I&rsquo;m learning Ember.js to use it for Fansy.in website and it has been a wonderful experience so far. Why client side MVC?
-Better user experience &hellip;">
+  <meta name="description" content="One of the strong points of ember is binding. It is so easy to update values without having to write observers and doing ugly stuff on DOM (I won& &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -73,6 +72,222 @@ Better user experience &hellip;">
       
   <header>
     
+      <h1 class="entry-title"><a href="/blog/2013/09/04/dynamic-class-names-in-ember/">Dynamic Class Names in Ember</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-09-04T11:13:00+05:30" pubdate data-updated="true">Sep 4<span>th</span>, 2013</time>
+        
+         | <a href="/blog/2013/09/04/dynamic-class-names-in-ember/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>One of the strong points of ember is binding. It is so easy to update values without having to write observers and doing ugly stuff on DOM (I won&rsquo;t pretend I know much about Javascript).</p>
+
+<p>As I&rsquo;m rewriting my website Fanzy.in in Ember, I&rsquo;m facing lot of minor issues which tell me either Ember has a steep learning curve, or docs aren&rsquo;t good enough (both are not good).</p>
+
+<p>While displaying player&rsquo;s scores in Fanzy, players in the gamer&rsquo;s(Gamers are users who are playing Fanzy) team should be highlighted, along with special highlighting of captain and vice captain. So my html is like this:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+</pre></td><td class='code'><pre><code class='html'><span class='line'><span class="nt">&lt;table</span> <span class="na">class=</span><span class="s">&quot;table table-bordered&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;tr&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;td&gt;</span>James Anderson<span class="nt">&lt;/td&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;td&gt;</span>Points: 251<span class="nt">&lt;/td&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;/tr&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;tr</span> <span class="na">class=</span><span class="s">&quot;info&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;td&gt;</span>Peter Siddle<span class="nt">&lt;/td&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;td&gt;</span>Points: 146<span class="nt">&lt;/td&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;/tr&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;tr</span> <span class="na">class=</span><span class="s">&quot;success&quot;</span><span class="nt">&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;td&gt;</span>Ashton Agar<span class="nt">&lt;/td&gt;</span>
+</span><span class='line'>      <span class="nt">&lt;td&gt;</span>Points: 251<span class="nt">&lt;/td&gt;</span>
+</span><span class='line'>  <span class="nt">&lt;/tr&gt;</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>James Anderson is not in the gamer&rsquo;s team. Peter Siddle is in the team and hence <code>class="info"</code>. Ashton Agar is either captain or vice captain and is shown by <code>class="success"</code></p>
+
+<p>Surprisingly, doing this turned out to be hard in Ember. (Because I just started and couldn&rsquo;t find how to do it) and finally used a custom view to acheive this.</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='coffeescript'><span class='line'><span class="nv">Fansy.ScheduledMatch = </span><span class="nx">Fansy</span><span class="p">.</span><span class="nx">Model</span><span class="p">.</span><span class="nx">extend</span>
+</span><span class='line'>  <span class="nv">matchPlayerScores: </span><span class="nx">DS</span><span class="p">.</span><span class="nx">hasMany</span><span class="p">(</span><span class="s">&quot;App.MatchPlayerScore&quot;</span><span class="p">)</span>
+</span><span class='line'>  <span class="nv">matchPlayerSelection: </span><span class="nx">DS</span><span class="p">.</span><span class="nx">belongsTo</span><span class="p">(</span><span class="s">&quot;App.MatchPlayerSelection&quot;</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">Fansy.MatchPlayerSelection = </span><span class="nx">Fansy</span><span class="p">.</span><span class="nx">Model</span><span class="p">.</span><span class="nx">extend</span>
+</span><span class='line'>  <span class="nv">matchPlayerScores: </span><span class="nx">DS</span><span class="p">.</span><span class="nx">hasMany</span><span class="p">(</span><span class="s">&quot;App.MatchPlayerScore&quot;</span><span class="p">)</span>
+</span><span class='line'>  <span class="nv">captainId: </span><span class="nx">DS</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s">&quot;number&quot;</span><span class="p">)</span>
+</span><span class='line'>  <span class="nv">viceCaptainId: </span><span class="nx">DS</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s">&#39;number&#39;</span><span class="p">)</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">Fansy.MatchPlayerScore = </span><span class="nx">Fansy</span><span class="p">.</span><span class="nx">Model</span><span class="p">.</span><span class="nx">extend</span>
+</span><span class='line'>  <span class="nv">totalPoints: </span><span class="nx">DS</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s">&#39;number&#39;</span><span class="p">)</span>
+</span><span class='line'>  <span class="nv">name: </span><span class="nx">DS</span><span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s">&#39;name&#39;</span><span class="p">)</span>
+</span><span class='line'>  <span class="nv">matchPlayerSelection: </span><span class="nx">DS</span><span class="p">.</span><span class="nx">belongsTo</span><span class="p">(</span><span class="s">&#39;App.MatchPlayerSelection&#39;</span><span class="p">)</span>
+</span><span class='line'>  <span class="nv">scheduledMatch: </span><span class="nx">DS</span><span class="p">.</span><span class="nx">belongsTo</span><span class="p">(</span><span class="s">&#39;App.ScheduledMatch&#39;</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Every match is modeled as <code>ScheduledMatch</code> and players scores as <code>MatchPlayerScore</code>. <code>MatchPlayerSelection</code> represents the team of the current logged in gamer.
+So ScheduledMatch might have around 30 players(MatchPlayerScore) but MatchPlayerSelection will exactly have 11 players(that is how many a gamer is allowed to select in his team.)</p>
+
+<p>Captain and vice captain are just ids for simplicity. Code is below:</p>
+
+<p>Template code:</p>
+
+<div>
+  <pre><code class='html'>&lt;table class=&quot;table table-bordered&quot;&gt;
+    {{#each matchPlayerScore in matchPlayerScores}}
+        {{#view Fansy.MpsTrView mpsIdBinding=&quot;matchPlayerScore.id&quot; matchPlayerSelectionBinding=&quot;matchPlayerSelection&quot;}}
+            &lt;td&gt;{{matchPlayerScore.name}}&lt;/td&gt;
+            &lt;td&gt;{{matchPlayerScore.totalPoints}}&lt;/td&gt;
+        {{/view}}
+    {{/each}}
+&lt;/table&gt;</code></pre>
+</div>
+
+
+<p>Custom View:</p>
+
+<figure class='code'><figcaption><span></span></figcaption><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+</pre></td><td class='code'><pre><code class='coffeescript'><span class='line'><span class="nv">Fansy.MpsTrView = </span><span class="nx">Em</span><span class="p">.</span><span class="nx">View</span><span class="p">.</span><span class="nx">extend</span>
+</span><span class='line'>  <span class="nv">mpsId: </span><span class="kc">null</span>
+</span><span class='line'>  <span class="nv">matchPlayerSelection: </span><span class="kc">null</span>
+</span><span class='line'>  <span class="nv">tagName: </span><span class="s">&#39;tr&#39;</span>
+</span><span class='line'>  <span class="nv">classNameBindings: </span><span class="p">[</span><span class="s">&#39;selectionClass&#39;</span><span class="p">]</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="nv">selectionClass: </span><span class="p">(</span><span class="nf">-&gt;</span>
+</span><span class='line'>    <span class="nv">mpsId = </span><span class="nb">parseInt</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s">&#39;mpsId&#39;</span><span class="p">))</span>
+</span><span class='line'>    <span class="nv">matchPlayerSelection = </span><span class="k">this</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s">&#39;matchPlayerSelection&#39;</span><span class="p">)</span>
+</span><span class='line'>    <span class="nv">selectionScores = </span><span class="nx">matchPlayerSelection</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s">&#39;matchPlayerScores.content&#39;</span><span class="p">)</span>
+</span><span class='line'>    <span class="k">if</span> <span class="nx">mpsId</span> <span class="o">==</span> <span class="nx">matchPlayerSelection</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s">&#39;captainId&#39;</span><span class="p">)</span>
+</span><span class='line'>      <span class="k">return</span> <span class="s">&quot;success&quot;</span>
+</span><span class='line'>    <span class="k">else</span> <span class="k">if</span> <span class="nx">mpsId</span> <span class="o">==</span> <span class="nx">matchPlayerSelection</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s">&#39;viceCaptainId&#39;</span><span class="p">)</span>
+</span><span class='line'>      <span class="k">return</span> <span class="s">&quot;success&quot;</span>
+</span><span class='line'>    <span class="k">else</span>
+</span><span class='line'>      <span class="k">for</span> <span class="nx">selectionScore</span> <span class="k">in</span> <span class="nx">selectionScores</span>
+</span><span class='line'>        <span class="k">if</span> <span class="nb">parseInt</span><span class="p">(</span><span class="nx">selectionScore</span><span class="p">.</span><span class="nx">id</span><span class="p">)</span> <span class="o">==</span> <span class="nx">mpsId</span>
+</span><span class='line'>          <span class="k">return</span> <span class="s">&quot;info&quot;</span>
+</span><span class='line'>      <span class="k">return</span> <span class="kc">null</span>
+</span><span class='line'>  <span class="p">).</span><span class="nx">property</span><span class="p">(</span><span class="s">&#39;mpsId&#39;</span><span class="p">,</span> <span class="s">&#39;matchPlayerSelection&#39;</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>We write our own custom view <code>Fansy.MpsTrView</code> which will render each <code>MatchPlayerScore</code>. The view will have the <tr> tag <code>tagName: 'tr'</code>. Also, we bind className to <code>selectionClass</code> function. So in the selection class function, we return <code>"info"</code> or <code>"success"</code> as appropriate.</p>
+
+<p>The view will render the handlebars block within <code></code> and we provide our table columns there. Since we have declared <tr> tag, handlebars block will be surrounded with <tr></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <h1 class="entry-title"><a href="/blog/2013/08/30/excited-for-barcamp-ember-dot-js-talk-and-rails-meetup-group/">Excited for Barcamp Ember.js Talk and Rails Meetup Group</a></h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-08-30T09:41:00+05:30" pubdate data-updated="true">Aug 30<span>th</span>, 2013</time>
+        
+         | <a href="/blog/2013/08/30/excited-for-barcamp-ember-dot-js-talk-and-rails-meetup-group/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>I&rsquo;m pretty excited and happy about my open source initiatives for this month.</p>
+
+<p>I was surprised that there is no Rails meetup in Bangalore. Rails is exciting!! More I use Rails, more I fall in love. A very well thought framework indeed. So I just went ahead and created one. I hope the community drives it forward.</p>
+
+<p>More I use Ember.js, more I&rsquo;m convinced of the potential of Javascript MVC frameworks. While Ember is still not a finished product (lots of polishing is required. And can do with good docs too.) I&rsquo;m giving a session on Ember in Barcamp Bangalore on Sept 14th.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
       <h1 class="entry-title"><a href="/blog/2013/08/28/a-look-at-ember-data/">A Look at Ember Data</a></h1>
     
     
@@ -114,7 +329,7 @@ And then, when we go to a Tournament&rsquo;s page where we will need Matches and
 
 <ol>
 <li>From the server, Send all the data required for displaying the particular page.</li>
-<li>For relationships, side load all data and never send only ids. (This will make sure extra calls are not made for fetching the those objects later but loaded already. Expensive to send all the data. Will handle it in the next step.)</li>
+<li>For relationships, side load relationships and never send only ids. (This will make sure extra calls are not made for fetching the those objects later. Yes it is expensive to send all the data. Will handle it in the next step.)</li>
 <li>Send only the data required for displaying the particular page. If matches are not required while showing list of tournaments, do not send down the ids of the matches too. (This will break the ember-data loading part but will handle it in the next step.)</li>
 <li>In the setupController, reload the model if loaded already. This way, we will make sure that the model is reloaded and the server will send all the request necessary to show the particular page.</li>
 </ol>
@@ -307,6 +522,14 @@ And then, when we go to a Tournament&rsquo;s page where we will need Matches and
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/09/04/dynamic-class-names-in-ember/">Dynamic Class Names in Ember</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/08/30/excited-for-barcamp-ember-dot-js-talk-and-rails-meetup-group/">Excited for Barcamp Ember.js Talk and Rails Meetup Group</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/08/28/a-look-at-ember-data/">A Look at Ember Data</a>
       </li>
     
@@ -316,10 +539,6 @@ And then, when we go to a Tournament&rsquo;s page where we will need Matches and
     
       <li class="post">
         <a href="/blog/2013/07/30/actionbarcompat-with-navigationdrawer/">ActionBarCompat With NavigationDrawer</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/07/29/first-post/">I Should Blog Daily!!</a>
       </li>
     
   </ul>
