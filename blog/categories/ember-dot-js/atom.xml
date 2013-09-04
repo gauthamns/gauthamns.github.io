@@ -4,7 +4,7 @@
   <title><![CDATA[Category: ember.js | My Stuff!!]]></title>
   <link href="http://gauthamns.github.io/blog/categories/ember-dot-js/atom.xml" rel="self"/>
   <link href="http://gauthamns.github.io/"/>
-  <updated>2013-09-04T12:20:47+05:30</updated>
+  <updated>2013-09-04T12:26:14+05:30</updated>
   <id>http://gauthamns.github.io/</id>
   <author>
     <name><![CDATA[Gautham]]></name>
@@ -122,7 +122,7 @@ else
 
 <p>We write our own custom view <code>Fansy.MpsTrView</code> which will render each <code>MatchPlayerScore</code>. The view will have the <tr> tag <code>tagName: 'tr'</code>. Also, we bind className to <code>selectionClass</code> function. So in the selection class function, we return <code>"info"</code> or <code>"success"</code> as appropriate.</p>
 
-<p>The view will render the handlebars block within <code> </code> and we provide our table columns there. Since we have declared <tr> tag, handlebars block will be surrounded with <tr></p>
+<p>The view will render the handlebars block within  {{#view}} {{/view}}  and we provide our table columns there. Since we have declared <tr> tag, handlebars block will be surrounded with <tr></p>
 ]]></content>
   </entry>
   
