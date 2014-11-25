@@ -3,14 +3,14 @@ layout: post
 title: "Google ditching Android? What a joke!!"
 date: 2013-07-30 19:51
 comments: true
-categories: 
+categories: [android, news]
 ---
 
-AppleInsider wrote a lengthy article stating Google is ditching Android!! It's a classic example of coming to a conclusion first and then looking for evidence. The article here: http://appleinsider.com/articles/13/07/29/google-appears-ready-to-ditch-android-over-its-intellectual-property-issues . Last article I've read in AppleInsider!!
+AppleInsider wrote a lengthy article stating Google is ditching Android!! It's a classic example of coming to a conclusion first and then looking for evidence. The article here: http://appleinsider.com/articles/13/07/29/google-appears-ready-to-ditch-android-over-its-intellectual-property-issues . Last article I've read in AppleInsider!! What a joke of an article!! It was actually fun reading all wrong conclusions :D
 
 Why? Because Android is not making money. Why? Intellectual issues. Why? Samsung's dominance. Why? Decelerated progress?. Why? Chromecast not named Androidcast!! Hahaha!!
 
-Android not making money? Seriously? That is why Microsoft spending billions popularizing Windows phone, firefox coming up with firefox os, Canonical, Ubuntu for phones. Android will make tons of money. From Motorola's hardware division, from Google services like email, app engine, from search etc etc. Do you think other divisions of Microsoft like Microsoft office would have been as popular as it has been if it were a standalone product?
+Android not making money? Seriously? That is why Microsoft spending billions popularizing Windows phone, firefox coming up with firefox os, Canonical, Ubuntu for phones. Android will make tons of money. From Motorola's hardware division, from Google services like email, app engine, from search etc etc. Do you think other divisions of Microsoft like Microsoft office would have been as popular as they have been if it were a standalone product?
 
 Intellectual issues? Microsoft had to pay so much in legal fines, so much bad press, bad blood I would say. Did they give up on Windows? Given that that was their main product but Android is not so for Google. But Android will be central to Google's bigger aspirations. to become more than just a search engine.
 
